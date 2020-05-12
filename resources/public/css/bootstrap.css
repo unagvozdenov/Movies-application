@@ -1173,6 +1173,9 @@ body {
   color: #333;
   background-color: #fff;
 }
+input[type="checkbox"], input[type="radio"] {
+color: blue;
+}
 input,
 button,
 select,
@@ -1180,6 +1183,8 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  width: 100%;
+  max-width: 100%;
 }
 a {
   color: #337ab7;
@@ -2649,6 +2654,11 @@ output {
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
+.form-control.check-box-style {
+     color : #337ab7 !important;
+}
+
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;
@@ -2716,6 +2726,11 @@ input[type="search"] {
 .form-group {
   margin-bottom: 15px;
 
+
+  .check-box-style {
+  color : #337ab7 !important;
+  }
+
    select {
            display: block !important;
            width: 100%;
@@ -2737,6 +2752,7 @@ input[type="search"] {
   display: block;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #337ab7;
 }
 .radio label,
 .checkbox label {
@@ -2745,6 +2761,7 @@ input[type="search"] {
   margin-bottom: 0;
   font-weight: normal;
   cursor: pointer;
+  color: #337ab7;
 }
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
@@ -2753,6 +2770,9 @@ input[type="search"] {
   position: absolute;
   margin-top: 4px \9;
   margin-left: -20px;
+  color: #337ab7;
+
+
 }
 .radio + .radio,
 .checkbox + .checkbox {
