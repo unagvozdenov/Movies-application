@@ -171,6 +171,13 @@ sub {
 img {
   border: 0;
 }
+.img-style img{
+    position: relative;
+    top: -95px;
+    width: 100px;
+    left: 200px;
+    height: 90px;
+}
 svg:not(:root) {
   overflow: hidden;
 }
@@ -336,6 +343,7 @@ th {
   .table {
     border-collapse: collapse !important;
   }
+
   .table td,
   .table th {
     background-color: #fff !important;
@@ -1379,6 +1387,10 @@ h6,
 p {
   margin: 0 0 10px;
 }
+p.font-style-class{
+font-style: italic;
+}
+
 .lead {
   margin-bottom: 20px;
   font-size: 16px;
@@ -2349,6 +2361,7 @@ caption {
 }
 th {
   text-align: left;
+  background-color: aliceblue !important;
 }
 .table {
   width: 100%;

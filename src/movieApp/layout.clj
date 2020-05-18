@@ -7,6 +7,8 @@
   (h/html5
     [:head
      [:title "Movie"]
+     [:link {:rel "icon" :href "merlin.jpg"}]
+
      (include-css "/css/bootstrap.css")
      ]
     [:body
