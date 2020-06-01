@@ -20,9 +20,9 @@
 (defn display-all-movies []
   (view/index-page (db/get-all-movies)))
 
-(defn create-movie [name year description genre recommendation image trailer]
+(defn create-movie [name year description genre recommendation trailer]
   (when-not (str/blank? name)
-    (db/create-movie name year description genre recommendation image trailer))
+    (db/create-movie name year description genre recommendation trailer))
       (view/index-page (db/get-all-movies)))
 
 (defn delete-movie [id]
@@ -37,15 +37,15 @@
 (defn show-create-view []
 (view/add-page))
 
-(defn update-movie [id name rating description genre recommendation image trailerLink]
+(defn update-movie [id name rating description genre recommendation trailerLink]
     (when-not (str/blank? id)
-    (db/update-movie id name rating description genre recommendation image trailerLink))
+    (db/update-movie id name rating description genre recommendation trailerLink))
    (view/index-page (db/get-all-movies)))
 
 (defroutes my_routes
   (GET "/" [] (display-all-movies))
-  (POST "/create-movie" [name rating description genre recommendation image trailer] (create-movie name rating description genre recommendation image trailer))
-  (POST "/update-movie"  [id name rating description genre recommendation image trailer] (update-movie id name rating description genre recommendation image trailer))
+  (POST "/create-movie" [name rating description genre recommendation trailer] (create-movie name rating description genre recommendation trailer))
+  (POST "/update-movie"  [id name rating description genre recommendation trailer] (update-movie id name rating description genre recommendation trailer))
   (GET "/update/:id" [id] (show-update-view id))
   (GET "/create" [] (show-create-view))
   (GET "/delete/:id" [id]  (delete-movie id))

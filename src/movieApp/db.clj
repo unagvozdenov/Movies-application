@@ -12,8 +12,8 @@
  (defn convert-boolean [arg]
    (if (= arg "true") 1 0))
 
-(defn create-movie [name rating description genre recommendation image trailer]
-  (sql/insert! connection :movie [:name :rating :description :genre :recommendation :image :trailer] [name rating description genre (convert-boolean recommendation) image trailer]))
+(defn create-movie [name rating description genre recommendation trailer]
+  (sql/insert! connection :movie [:name :rating :description :genre :recommendation :trailer] [name rating description genre (convert-boolean recommendation) trailer]))
 
 (defn delete-movie [id]
  (sql/delete! connection :movie
@@ -25,6 +25,6 @@
 (defn get-movie-by-id [id]
     (into [] (sql/query connection ["select * from movie where id = ?" id])))
 
-(defn update-movie [id name rating description genre recommendation image trailer]
+(defn update-movie [id name rating description genre recommendation trailer]
 
-  (sql/update! connection :movie {:id id :name name :rating rating :description description :genre genre :recommendation (convert-boolean recommendation) :image image :trailer trailer} ["id = ?" id]))
+  (sql/update! connection :movie {:id id :name name :rating rating :description description :genre genre :recommendation (convert-boolean recommendation) :trailer trailer} ["id = ?" id]))
