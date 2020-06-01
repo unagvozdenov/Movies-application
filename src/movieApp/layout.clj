@@ -1,20 +1,22 @@
 (ns movieApp.layout
-  (:use [hiccup.element :only (link-to)])
-  (:require [hiccup.page :as h]
-            [hiccup.page :refer [html5 include-css]]))
+  (:require [hiccup.page :refer :all]
+            [movieApp.navbar :as navbar]
+            ))
 
-(defn common-layout [header & body]
-  (h/html5
+(defn common [& body]
+  (html5
+    (navbar/nav)
     [:head
-     [:title "Movie"]
-     [:link {:rel "icon" :href "merlin.jpg"}]
-
-     (include-css "/css/bootstrap.css")
-     ]
+     [:title "Movies"]
+     (include-js "https://code.jquery.com/jquery-3.2.1.slim.min.js")
+     (include-js "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js")
+     (include-js "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
+     (include-css "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+     (include-js "/js/jquery.slides.js")
+     (include-css "/css/styles.css")
+     (include-js "/js/validation.js")]
     [:body
-     [:div {:class "header"}
-      [:h1 {:class "container"} header]]
-     [:div {:id "content" :class "container"} body]]))
-
-(defn not-found []
-  (common-layout "NOT FOUND" [:div {:id "error"} "Unfortunately, the page you requested could not be found!!!"]))
+     [:div {:class ""}
+      body
+      ]
+     ]) )
